@@ -36,7 +36,6 @@ export default {
     },
     strokeColor: {
       type: String,
-      default: 'black'
     },
     viewBox: {
       type: String,

@@ -22,32 +22,30 @@
         <li class="crumb"><a href="#">Краски</a></li>
       </ul>
 
-      <div class="category-info">
-        <h2 class="category-title">{{ currentCategory.title }}</h2>
-        <p class="category-subtitle">{{ currentCategory.subtitle }}</p>
+      <div class="category">
+        <div class="category-info">
+          <h2 class="category-title">{{ currentCategory.title }}</h2>
+          <p class="category-subtitle">{{ currentCategory.subtitle }}</p>
+        </div>
+
+        <button 
+          class="category-slider__roll-btn category-slider__roll-btn--next"
+          @mousedown.prevent
+          @click.stop="rollSlider('right')"
+        >
+          <IconBase class="category-slider__roll-icon category-slider__roll-icon--next" 
+            :width="22" :height="42"><ArrowRightIcon/></IconBase>
+        </button>
+
+        <button 
+          class="category-slider__roll-btn category-slider__roll-btn--previous"
+          @mousedown.prevent
+          @click.stop="rollSlider('left')"
+        >
+          <IconBase class="category-slider__roll-icon category-slider__roll-icon--previous"  
+            :width="22" :height="42"><ArrowLeftIcon/></IconBase>
+        </button>
       </div>
-
-      <button 
-        class="category-slider__roll-btn category-slider__roll-btn--next"
-        @mousedown.prevent
-        @click.stop="rollSlider('right')"
-      >
-        <IconBase :width="22" :height="42" 
-          :stroke-color="currentCategory.theme === 'dark' ? 
-            styleVariables.lightPink : styleVariables.darkTurquoise"
-        ><ArrowRightIcon/></IconBase>
-      </button>
-
-      <button 
-        class="category-slider__roll-btn category-slider__roll-btn--previous"
-        @mousedown.prevent
-        @click.stop="rollSlider('left')"
-      >
-        <IconBase :width="22" :height="42" 
-          :stroke-color="currentCategory.theme === 'dark' ? 
-            styleVariables.lightPink : styleVariables.darkTurquoise"
-        ><ArrowLeftIcon/></IconBase>
-      </button>
 
       <ul class="category-slider__status">
         <li 
@@ -167,6 +165,10 @@ export default {
     .category-info {
       color: $light-pink;
     }
+
+    .category-slider__roll-icon {
+      stroke: $light-pink;
+    }
   }
 
   &--light {
@@ -186,6 +188,10 @@ export default {
     
     .category-info {
       color: $dark-turquoise;
+    }
+
+    .category-slider__roll-icon {
+      stroke: $dark-turquoise;
     }
   }
 }
@@ -253,6 +259,7 @@ export default {
 
 .category-subtitle {
   font-size: 16px;
+  line-height: 1.3em;
   letter-spacing: 0.02em;
 }
 
@@ -361,8 +368,15 @@ export default {
     margin-bottom: 48px;
   }
 
-  .category-title {
+  .category {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 48px;
+  }
+
+  .category-title {
+    margin-bottom: 0;
     font-size: 36px;
     letter-spacing: -0.04em;
     line-height: 0.8em;
@@ -373,7 +387,27 @@ export default {
   }
 
   .category-slider__roll-btn {
-    display: none;
+
+    &--previous {
+      display: none;
+    }
+
+    &--next {
+      position: static;
+    }
+  }
+
+  .category-slider__roll-btn {
+    padding: 0;
+
+    &--next {
+      position: static;
+      transform: none;
+    }
+  }
+
+  .category-slider--dark .category-slider__roll-icon {
+    stroke: $dark-turquoise;
   }
 
   .category-slider__status {

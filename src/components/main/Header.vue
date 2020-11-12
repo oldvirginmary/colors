@@ -230,6 +230,7 @@ export default {
   border: none;
   border-radius: 50%;
   background-color: $light-gray;
+  outline: none;
 
   &--green {
     background-color: $sexy-green;

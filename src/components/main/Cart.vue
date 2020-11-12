@@ -5,7 +5,9 @@
         <div class="cart-window__header">
           <h3 class="cart-window__title">Корзина</h3>
           <button class="cart-window__close-btn" @click="closeCart">
-            <IconBase class="cart-window__close-btn-icon" :width="24" :height="24"><CrossIcon/></IconBase>
+            <IconBase class="cart-window__close-btn-icon" :width="24" :height="24">
+              <CrossIcon/>
+            </IconBase>
           </button>
         </div>
         <div class="cart-window__properties">
@@ -14,7 +16,7 @@
           </p>
           <button class="cart-window__clear-cart-btn" 
             @click="$store.dispatch('cleanCart')"
-          >Очисть список</button>
+          >Очистить список</button>
         </div>
         <ul class="cart-items">
           <li v-for="(cartItem, index) in cart" :key="cartItem.id"
@@ -67,7 +69,9 @@
             <div class="cart-window__result-title">Итого</div>
             <div class="cart-window__result-sum">{{ cartTotalPrice + " ₽" }}</div>
           </div>
-          <a class="cart-window__checkout" href="#">Оформить заказ</a>
+          <button :class="['cart-window__checkout', {'cart-window__checkout--inactive': cart.length < 1}]">
+            Оформить заказ
+          </button>
         </div>
       </div>
     </transition>
@@ -186,6 +190,7 @@ export default {
   background-color: transparent;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
+  outline: none;
   cursor: pointer;
 
   &:hover {
@@ -325,6 +330,7 @@ export default {
 .cart-item__decrease-amount-icon {
   width: 16px;
   height: 16px;
+  stroke: $dark-turquoise;
 }
 
 .cart-item__remove-item-btn {
@@ -336,6 +342,10 @@ export default {
   border: none;
   outline: none;
   cursor: pointer;
+}
+
+.cart-item__repeat-icon {
+  stroke: $dark-turquoise;
 }
 
 .cart-item__remove-icon {
@@ -370,12 +380,24 @@ export default {
   
   border-radius: 4px;
   background-color: $sexy-green;
+  border: none;
+  outline: none;
   cursor: pointer;
 
   &:hover {
     color: #FFFFFF;
   }
+
+  &--inactive {
+    background-color: $light-gray;
+
+    &:hover {
+      color: $dark-turquoise;
+      cursor: auto;
+    }
+  }
 }
+
 
 
 @media (max-width: $tablet-size + 1px) {
