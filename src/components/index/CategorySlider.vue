@@ -16,11 +16,16 @@
         >
       </transition>
 
-      <ul class="breadcrumbs">
-        <li class="crumb"><a href="#">Главная</a></li>
-        <li class="crumb"><a href="#">Продукты</a></li>
-        <li class="crumb"><a href="#">Краски</a></li>
-      </ul>
+      <div class="category-slider__header">
+        <ul class="breadcrumbs">
+          <li class="crumb"><a href="#">Главная</a></li>
+          <li class="crumb"><a href="#">Продукты</a></li>
+          <li class="crumb"><a href="#">Краски</a></li>
+        </ul>
+        <a class="phone-number" href="tel:+74952217769">
+          +7 (495) 221-77-69
+        </a>
+      </div>
 
       <div class="category">
         <div class="category-info">
@@ -213,8 +218,11 @@ export default {
   opacity: 0;
 }
 
-.breadcrumbs {
+.category-slider__header {
   position: relative;
+}
+
+.breadcrumbs {
   display: flex;
   list-style: none;
   font-size: 10px;
@@ -239,6 +247,10 @@ export default {
     border-radius: 100%;
     content: "";
   }
+}
+
+.phone-number {
+  display: none;
 }
 
 .category-info {
@@ -335,7 +347,7 @@ export default {
       background-color: #FFFFFF;
     }
 
-    .breadcrumbs {
+    .category-slider__header {
       opacity: 0.3;
     }
 
@@ -364,8 +376,25 @@ export default {
     text-align: left;
   }
 
+  .category-slider__header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 38px;
+  }
+
   .breadcrumbs {
-    margin-bottom: 48px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .phone-number {
+    display: block;
+    color: $dark-turquoise;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-decoration: none;
   }
 
   .category {
