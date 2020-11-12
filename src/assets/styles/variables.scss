@@ -1,0 +1,17 @@
+$desktop-size: 1920px;
+$laptop-size: 1024px;
+$tablet-size: 768px;
+$mobile-size: 425px;
+
+
+$dark-turquoise: #1F2020;
+$light-pink: #f8e9e9;
+$sexy-green: #7BB899;
+$light-gray: #F2F2F2;
+
+:export {
+  darkTurquoise: #1F2020;
+  lightPink: #f8e9e9;
+  sexyGreen: #7BB899;
+  lightGray: #F2F2F2;
+}

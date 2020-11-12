@@ -1,24 +1,20 @@
 # colors
 
-## Project setup
+## Дизайн-макет
+https://www.figma.com/file/puN1fWGc2EomEPi0Zwsk5Q/COLORS?node-id=0%3A1
+
+## Настройка и запуск проекта
+Необходимо скачать зависимости
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Стройка для разработки
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Стройка для производствва
 ```
 npm run build
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

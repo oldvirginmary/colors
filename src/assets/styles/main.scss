@@ -1,0 +1,94 @@
+@import 'variables.scss';
+
+
+* {
+  box-sizing: border-box;
+}
+
+ul,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+.blur {
+  overflow: hidden;
+}
+
+.popup-fade {
+  position: fixed;
+  z-index: 1;
+}
+
+.popup-fade:before {
+  content: '';
+  background: #000;
+  position: fixed;
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+}
+
+@mixin container {
+  width: 100%;
+  padding-right: calc(50% - (#{$desktop-size} / 2));
+  padding-left: calc(50% - (#{$desktop-size} / 2));
+
+  @media (max-width: $desktop-size + 64px * 2 + 1px) {
+    padding-right: 64px;
+    padding-left: 64px;
+  }
+
+  @media (max-width: $laptop-size + 1px) {
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+
+  @media (max-width: $mobile-size + 1px) {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+}
+
+@mixin mobile-pop-up {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+
+  width: 100%;
+  height: 70%;
+  padding-top: 12px;
+  padding-left: 24px;
+  padding-right: 24px;
+
+  background-color: #FFFFFF;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  overflow-y: scroll;
+
+  &:before {
+    content: "";
+    width: 28px;
+    height: 4px;
+    margin: 0 auto;
+    margin-bottom: 38px;
+    border-radius: 40px;
+    opacity: 0.6;
+    background-color: $dark-turquoise;
+  }
+}
