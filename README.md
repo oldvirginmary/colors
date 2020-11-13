@@ -1,7 +1,7 @@
 # colors
 
-## Дизайн-макет
-https://www.figma.com/file/puN1fWGc2EomEPi0Zwsk5Q/COLORS
+## Уже развёрнут по ссылке
+colors-zeta.vercel.app
 
 ## Настройка и запуск проекта
 Необходимо скачать зависимости
