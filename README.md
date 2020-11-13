@@ -1,7 +1,7 @@
 # colors
 
 ## Уже развёрнут по ссылке
-colors-zeta.vercel.app
+https://colors-zeta.vercel.app
 
 ## Настройка и запуск проекта
 Необходимо скачать зависимости
